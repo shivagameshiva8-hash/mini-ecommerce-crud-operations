@@ -13,7 +13,15 @@ body{
 
 .name{
     background-color: dodgerblue;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 5px 15px;
+    border-radius: 16px;
+}
+
+.category{
+    background-color: rgb(111, 214, 21);
+    color: black;
+    margin-right: 450px;
+    padding: 15px 15px ;
     border-radius: 16px;
 }

@@ -89,6 +89,45 @@ app.delete("/products/:id/delete",async (req,res)=>{
     let deletedChat = await Product.findByIdAndDelete(id);
     console.log(deletedChat);
     res.redirect("/products");
+});
+
+
+//search route
+app.get("/products/search",async (req,res)=>{
+   let search = req.query.search;
+   console.log("Search:", search);
+   let products;
+   if(search) {
+    products =await Product.find({
+        name:{$regex: search, $options:"i"}
+    });
+   }else{
+    products= await Product.find();
+   }
+   console.log("Products:", products);
+
+   res.render("index.ejs",{products});
+
+
+});
+
+//Filter Route
+app.get("/products/filter", async (req,res)=>{
+     let filter = req.query.category;
+    let products;
+    if (filter) {
+        products = await Product.find({
+            category: filter
+        });
+    } else {
+        products = await Product.find();
+    }
+    res.render("index.ejs", { products });
+    // let filter=req.query.category;
+    // let products = await Product.find({
+    //     category:filter
+    // })
+    // res.render("index.ejs",{products});
 })
 
 

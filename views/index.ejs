@@ -4,10 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini E-commerce</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <h3>All Products !</h3>
+    
+    <form method="GET" action="/products/filter">
+
+        <select name="category">
+            <option value="">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Bags">Bags</option>
+            <option value="Footwear">Footwear</option>
+        </select>
+
+        <button type="submit">Filter</button>
+
+    </form><br>
+
+    <form method="GET" action="/products/search">
+    <input
+        type="text"
+        name="search"
+        placeholder="Search products..."
+    >
+   
+
+    <button type="submit">Search</button><br>
+
+     </form>
 
     <% for(let product of products) { %>
         <!-- creting new product -->
@@ -37,7 +63,9 @@
 
         </div>
         <br>
-        <p><i><%=product.price%></i></p>
+        <p><i><%=product.price%></i></p><br>
+
+        <p class="category"><i>category:<b><%=product.category%></b></i></p>
 
         <br>
         <div class="name">
