@@ -27,3 +27,8 @@ MongoDB and Mongoose.
 - Read - View products
 - Update - Edit product details
 - Delete - Remove a product
+
+
+## Search & Filtering
+
+Users can search for products and filter products based on their category.
